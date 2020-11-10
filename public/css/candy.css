@@ -1,0 +1,119 @@
+body {
+  background-color: rgb(58, 62, 65);
+
+}
+
+.game {
+  display: flex;
+}
+a {
+  font-size: 24px;
+  color: white;
+  text-decoration: none; /* no underline */
+}
+
+.game > div {
+  padding: 0px 50px;
+  width: 50%;
+}
+
+* {
+  font-family: 'Roboto', sans-serif !important;
+}
+
+/* text format */
+h1 {
+  color: white;
+  font-size: 85px;
+  text-shadow: 5px 10px 5px rgba(0,191,255,1);
+  text-align: center;
+}
+
+h2 {
+  font-size: 30px;
+  color: white;
+  text-shadow: 8px 4px 8px rgba(0,22,255,0.3);
+}
+
+button {
+  background-color: rgba(0,191,255,1);
+  border-color: rgba(0,191,255,1);
+  border-radius: 10px;
+  padding: 15px;
+  color: white;
+  font-size: 30px;
+  margin-right: 10%;
+}
+
+button:hover {
+  box-shadow: 0px 0px 20px 5px rgba(0,22,255,0.3) inset;
+  border-color: rgba(0,22,255,0.3);
+  cursor: pointer;
+}
+
+p {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 25px;
+  color: white;
+}
+
+.left {
+  line-height: 50px;
+  background-color: rgba(0,22,255,0.3);
+  border-radius: 15px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  height: 420px;
+  box-shadow: 0px 0px 40px 10px rgba(0,22,255,0.3) inset;
+}
+
+.game-info {
+  display: none;
+}
+
+#high-score {
+  font-size: 20px;
+}
+
+/* grid layout */
+#grid {
+  flex-wrap: wrap;
+  width: 540px;
+  height: 420px;
+  box-shadow: 5px 5px 20px 5px rgba(0,22,255,0.3);
+  display: none;
+}
+
+.cell {
+  height: 56px;
+  width: 56px;
+  border: 2px solid  rgba(0,112,255,1);
+}
+
+/* candies */
+.green {
+  background-image: url('../assets/green.png');
+  background-size:contain;
+  background-position: center;
+}
+.purple {
+  background-image: url('../assets/purple.png');
+  background-size:contain;
+  background-position: center;
+}
+.orange {
+  background-image: url('../assets/orange.png');
+  background-size:contain;
+  background-position: center;
+}
+.blue {
+  background-image: url('../assets/blue.png');
+  background-size:contain;
+  background-position: center;
+}
+
+.first-pick {
+  border: 2px solid white;
+  filter: brightness(120%)
+}

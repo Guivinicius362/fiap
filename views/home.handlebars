@@ -1,0 +1,39 @@
+<link rel="stylesheet" href="css/home.css">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+<div class="container">
+    <div class="container__header">
+        <h1 class="container__header__name">Bem vindo Guilherme</h1>
+        <i class="fa fa-user-circle profile" style="font-size:48px;"></i>
+    </div>
+    <div class="container__list">
+        {{#each days}}
+        {{#if this.isLocked}}
+        <div class="container__list__item w blur">
+            <h1 class="container__list__item__title">{{this.title}}</h1>
+            <h2 class="container__list__item__subtitle">{{this.subtitle}}</h1>
+        </div>
+        {{else}}
+        <a href="{{this.path}}" class="container__list__item">
+            <div class="container__list__item">
+                <h1 class="container__list__item__title">{{this.title}}</h1>
+                <div>
+                    {{#ifEquals  this.type 1}}
+                    <span class="container__list__item__title">Entretenimento</span>
+                    {{/ifEquals}}
+                    {{#ifEquals  this.type 2}}
+                    <span class="container__list__item__title">Educativa</span>
+                    {{/ifEquals}}
+                    {{#ifEquals  this.type 3}}
+                    <span class="container__list__item__title">Configuração</span>
+                    {{/ifEquals}}
+
+                    <h2 class="container__list__item__subtitle">{{this.subtitle}}</h1>
+                </div>
+            </div>
+        </a>
+        {{/if}}
+        {{/each}}
+    </div>
+</div>
