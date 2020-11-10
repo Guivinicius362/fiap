@@ -17,73 +17,57 @@ app.set('view engine', 'handlebars');
 
 app.use(express.static(__dirname + '/public'));
 
-const days = [
-    {
-        id: 1,
-        title: "Segunda",
-        subtitle: "Jogo da forca",
-        data: "",
-        isLocked: false,
-        path: '/forca?palavra=gui&dica=gui',
-        type: 1
-    },
-    {
-        id: 2,
-        title: "Terça",
-        subtitle: "Saga dos doces",
-        data: "",
-        isLocked: false,
-        path: "/candy",
-        type: 2
-    },
-    {
-        id: 3,
-        title: "Quarta",
-        subtitle: "Jogo da forca",
-        data: "",
-        isLocked: true,
-        path: "/",
-        type: 1
-    },
-    {
-        id: 1,
-        title: "Quinta",
-        subtitle: "Jogo da forca",
-        data: "",
-        isLocked: true,
-        path: "/",
-        type: 1
-    },
-    {
-        id: 2,
-        title: "Sexta",
-        subtitle: "Jogo da forca",
-        data: "",
-        isLocked: true,
-        path: "/",
-        type: 1
-    },
-    {
-        id: 2,
-        title: "",
-        subtitle: "Feedback para a Escola",
-        data: "",
-        isLocked: false,
-        path: "/",
-        type: 3
-    },
-]
+const { Sequelize } = require('sequelize');
 
-app.get('/', function (req, res) {
+const sequelize = new Sequelize('phpmyadmin', 'root', '', {
+    host: 'localhost',
+    dialect: 'mysql'
+});
+
+sequelize
+    .authenticate()
+    .then(function (err) {
+        console.log('Connection has been established successfully.');
+    })
+    .catch(function (err) {
+        console.log('Unable to connect to the database:', err);
+    });
+
+var dashboardItem = sequelize.define('Dashboard', {
+    id: {
+        type: Sequelize.INTEGER,
+        primaryKey: true
+    },
+    title: {
+        type: Sequelize.STRING
+    },
+    subtitle: {
+        type: Sequelize.STRING
+    },
+    isLocked: {
+        type: Sequelize.BOOLEAN
+    },
+    path: {
+        type: Sequelize.STRING
+    },
+    type: {
+        type: Sequelize.INTEGER
+    },
+})
+
+app.get('/', async (req, res) => {
+
+    let days = await dashboardItem.findAll();
+    days = days.map(elem => elem.dataValues)
     res.render('home', { days });
 });
 
-app.get('/candy', function (req, res) {
-    res.render('candy', { days });
+app.get('/candy', (req, res) => {
+    res.render('candy');
 });
 
-app.get('/forca', function (req, res) {
-    res.render('forca', { days });
+app.get('/forca', (req, res) => {
+    res.render('forca');
 });
 
 app.listen(3000);
