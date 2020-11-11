@@ -4,6 +4,10 @@
     justify-content: space-between;
     flex-direction: column;
     background-color: rgb(58, 62, 65);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-image: url("https://78.media.tumblr.com/3d3c53ea8860bf0c0d6e1df548eee092/tumblr_pe7yn0DOUR1xqljz0o1_400.gif") ;
 }
 
 .container__header {
@@ -14,7 +18,7 @@
     align-items: center;
     border-bottom-left-radius: 20px;
     border-bottom-right-radius: 20px;
-    background: linear-gradient(90deg, rgba(0,191,255,1) 0%, rgba(0,112,255,1) 50%, rgba(0,22,255,0.3) 100%);
+    background: linear-gradient(90deg, rgba(0,191,255,0.3) 0%, rgba(0,112,255,1) 50%, rgba(0,22,255,0.3) 100%);
 }
 
 .container__list {
@@ -40,7 +44,7 @@
     margin: 12px;
     width: 25%;
     height: 45%;
-    background: rgba(0,112,255,1);
+    background: rgba(0,112,255,0.5);
     border-radius: 10px;
     color: white;
     border: 2px solid rgba(0,191,255,1);

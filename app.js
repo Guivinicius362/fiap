@@ -15,6 +15,9 @@ var hbs = exphbs.create({
 app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars');
 
+app.use(express.json())
+app.use(express.urlencoded({ extended: true }));
+
 app.use(express.static(__dirname + '/public'));
 
 const { Sequelize } = require('sequelize');
@@ -55,6 +58,15 @@ var dashboardItem = sequelize.define('Dashboard', {
     },
 })
 
+var feedbackItem = sequelize.define('feedback', {
+    feedback: {
+        type: Sequelize.STRING
+    },
+    nota: {
+        type: Sequelize.INTEGER
+    },
+})
+
 app.get('/', async (req, res) => {
 
     let days = await dashboardItem.findAll();
@@ -68,6 +80,22 @@ app.get('/candy', (req, res) => {
 
 app.get('/forca', (req, res) => {
     res.render('forca');
+});
+
+app.get('/feedback', (req, res) => {
+    res.render('form');
+});
+
+app.post('/feedback', async (req, res) => {
+
+    await feedbackItem.create({
+        feedback: req.body.feedback,
+        nota: req.body.nota,
+    });
+
+    let days = await dashboardItem.findAll();
+    days = days.map(elem => elem.dataValues)
+    res.render('home', { days });
 });
 
 app.listen(3000);

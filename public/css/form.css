@@ -1,0 +1,40 @@
+form {
+    width: 100%;
+    display: flex;
+    height: 100vh;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+label  {
+    font-family: 'Roboto', sans-serif !important;
+    font-size: 24px;
+    font-weight: bold;
+
+}
+
+span {
+    font-family: 'Roboto', sans-serif !important;
+    font-size: 32px;
+    font-weight: bold;
+}
+
+.input_label {
+    display: flex;
+    flex-direction: column;
+}
+.nota {
+    width: 100%;
+    justify-content: space-evenly;
+    display: flex;
+    flex-direction: row;
+}
+
+* {
+    font-family: 'Roboto', sans-serif !important;
+}
+
+a {
+    font-size: 24px;
+}

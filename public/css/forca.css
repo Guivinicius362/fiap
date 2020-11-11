@@ -4,7 +4,7 @@
   height: 48px;
   line-height: 40px;
   text-align: center;
-  background: rgba(0,191,255,1);
+  background: rgba(0,191,255,0.7);
   border-radius: 8px;
   border: 1px solid #c3f0fc;
   display: flex;
@@ -76,6 +76,11 @@
   justify-content: space-evenly;
   align-items: center;
   flex-direction: column;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-image: url('../assets/nunu.jpg');
+  
 }
 
 a {
