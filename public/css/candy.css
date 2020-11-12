@@ -25,13 +25,13 @@ a {
 /* text format */
 h1 {
   color: white;
-  font-size: 85px;
+  font-size: 45px;
   text-shadow: 5px 10px 5px rgba(0,191,255,1);
   text-align: center;
 }
 
 h2 {
-  font-size: 30px;
+  font-size: 20px;
   color: white;
   text-shadow: 8px 4px 8px rgba(0,22,255,0.3);
 }

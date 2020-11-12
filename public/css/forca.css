@@ -30,7 +30,7 @@
 }
 
 .container {
-  height: 50%;
+  height: 20%;
   padding: 12px;
   display: flex;
   flex-direction: column;
@@ -66,11 +66,11 @@
 
 .teclado_div {
   width: 95%;
-  height: 20%;
+  height: 15%;
 }
 
 .background {
-  height: 100vh;
+  height: 100%;
   background-color: rgb(58, 62, 65);
   display: flex;
   justify-content: space-evenly;
@@ -81,6 +81,10 @@
   background-size: cover;
   background-image: url('../assets/nunu.jpg');
   
+}
+body, html, .app {
+  height: 100vh; /* Use vh as a fallback for browsers that do not support Custom Properties */
+  height: calc(100vh - calc(100vh - 100%))
 }
 
 a {
