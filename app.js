@@ -67,32 +67,33 @@ var feedbackItem = sequelize.define('feedback', {
     },
 })
 
-app.get('/', async (req, res) => {
 
-    let days = await dashboardItem.findAll();
-    days = days.map(elem => elem.dataValues)
-    res.render('home', { days });
-});
 
-app.get('/candy', (req, res) => {
+app.get('**/candy**', (req, res) => {
     res.render('candy');
 });
 
-app.get('/forca', (req, res) => {
+app.get('**/forca**', (req, res) => {
     res.render('forca');
 });
 
-app.get('/feedback', (req, res) => {
+app.get('**/feedback**', (req, res) => {
     res.render('form');
 });
 
-app.post('/feedback', async (req, res) => {
+app.post('**/feedback**', async (req, res) => {
 
     await feedbackItem.create({
         feedback: req.body.feedback,
         nota: req.body.nota,
     });
 
+    let days = await dashboardItem.findAll();
+    days = days.map(elem => elem.dataValues)
+    res.render('home', { days });
+});
+
+app.get('**', async (req, res) => {
     let days = await dashboardItem.findAll();
     days = days.map(elem => elem.dataValues)
     res.render('home', { days });
